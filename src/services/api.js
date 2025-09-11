@@ -2,7 +2,7 @@ import axios from "axios"
 
 
 const apiEmissorNotas = axios.create({
-    baseURL: "http://192.168.200.103:3001"
+    baseURL: "https://gerenciador-notas-servi-o-back-end.onrender.com"
 })
 
 apiEmissorNotas.interceptors.request.use( async config =>{
