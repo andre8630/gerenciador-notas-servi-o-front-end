@@ -1,21 +1,19 @@
-import axios from "axios"
-
+import axios from "axios";
 
 const apiEmissorNotas = axios.create({
-    baseURL: "https://gerenciador-notas-servi-o-back-end.onrender.com"
-})
+  baseURL: "https://gerenciador-notas-servi-o-back-end.onrender.com",
+});
 
-apiEmissorNotas.interceptors.request.use( async config =>{
+apiEmissorNotas.interceptors.request.use(async (config) => {
+  const userData = await localStorage.getItem("emissorNota:userData");
 
-    const userData = await localStorage.getItem("emissorNota:userData")
+  const token = userData && JSON.parse(userData).token;
 
-    const token = userData && JSON.parse(userData).token
-
-    if (token) {
-    config.headers.authorization = `Bearer ${token}`
+  if (token) {
+    config.headers.authorization = `Bearer ${token}`;
   }
 
-    return config
-})
+  return config;
+});
 
-export default apiEmissorNotas
+export default apiEmissorNotas;

@@ -44,10 +44,7 @@ export function ImageContent({ images, newImages = [], onRemoveImage }) {
     }
 
     const image = allImages[newIndex];
-    const imageUrl =
-      typeof image === "string"
-        ? `https://gerenciador-notas-servi-o-back-end.onrender.com/files/${image}`
-        : image.url || image;
+    const imageUrl = typeof image === "string" ? image : image.url || image;
 
     setSelectedImage(imageUrl);
     setCurrentIndex(newIndex);
@@ -68,9 +65,7 @@ export function ImageContent({ images, newImages = [], onRemoveImage }) {
       <GalleryContainer>
         {allImages.map((image, index) => {
           const imageUrl =
-            typeof image === "string"
-              ? `https://gerenciador-notas-servi-o-back-end.onrender.com/files/${image}`
-              : image.url || image;
+            typeof image === "string" ? image : image.url || image;
 
           return (
             <ImageWrapper key={index}>
