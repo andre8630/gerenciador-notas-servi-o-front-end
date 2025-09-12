@@ -175,8 +175,8 @@ export function EditOrdens() {
     productDataForm.append("keepExistingImages", "true");
     productDataForm.append("existingImages", JSON.stringify(existingImages));
 
-    try {
-      await api.put(
+    await toast.promise(
+      api.put(
         `service-order/${location.state.id}/update-service`,
         productDataForm,
         {
@@ -184,13 +184,14 @@ export function EditOrdens() {
             "Content-Type": "multipart/form-data",
           },
         }
-      );
-      toast.success("Ordem editada com sucesso");
-      setTimeout(() => navigate("/listar-ordens"), 1000);
-    } catch (error) {
-      toast.error("Erro ao editar orden!");
-      console.log(error);
-    }
+      ),
+      {
+        pending: "Processando",
+        success: "Orden de serviço editada!",
+        error: "Erro ao editar orden!",
+      }
+    );
+    setTimeout(() => navigate("/listar-ordens"), 1000);
   };
 
   return (

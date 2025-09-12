@@ -67,17 +67,21 @@ export function UserEdit() {
     userDataForm.append("phone_number", clientData?.phone_number);
     userDataForm.append("logo", clientData?.logo?.[0]);
 
-    try {
-      await api.put(`/users/${user?.id}`, userDataForm, {
+    await toast.promise(
+      api.put(`/users/${user?.id}`, userDataForm, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-      });
-      toast.success("Usuario editado com sucesso");
+      }),
+      {
+        pending: "Processando",
+        success: "Usuario editado com sucesso!",
+        error: "Erro ao editar usuario!",
+      }
+    );
+    setTimeout(() => {
       navigate("/");
-    } catch (error) {
-      toast.error("Falha no sistema tente novamente!");
-    }
+    }, 1000);
   };
 
   useEffect(() => {
