@@ -102,7 +102,7 @@ export function UserEdit() {
 
         <H1>Tela de usuario</H1>
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
-          <Logo>
+          {/* <Logo>
             <img src={user?.url_logo} />
           </Logo>
 
@@ -111,7 +111,7 @@ export function UserEdit() {
               Upload logo
               <input type="file" {...register("logo")} />
             </LabelUpload>
-          </div>
+          </div> */}
 
           <div>
             <Span>Nome</Span>
