@@ -137,7 +137,7 @@ export function EditOrdens() {
       address: location.state?.address || "",
       description: location.state?.description || "",
       phone: location.state?.phone || "",
-
+      price: location.state?.price,
       status: location.state?.status || "Fazer orçamento",
       files: location.state?.files,
     },
@@ -304,6 +304,7 @@ export function EditOrdens() {
               type="number"
               {...register("price")}
               placeholder="Digite o novo valor"
+              defaultValue={formatCurrency(location.state?.price)}
             />
 
             <ButtonPrint
