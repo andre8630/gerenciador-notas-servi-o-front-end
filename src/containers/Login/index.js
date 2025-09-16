@@ -85,7 +85,7 @@ export function Login() {
           <Button type="submit">Fazer login</Button>
         </form>
         <SpanFooter>
-          Não possui conta ? <Link to={"/cadastro"}>Crie uma</Link>
+          {/* Não possui conta ? <Link to={"/cadastro"}>Crie uma</Link> */}
         </SpanFooter>
       </ContainerItems>
     </Container>
