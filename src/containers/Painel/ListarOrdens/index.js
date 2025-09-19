@@ -44,7 +44,7 @@ export function ListarOrdens() {
     loadOrdens();
 
     // Configura o polling a cada 30 segundos
-    const intervalId = setInterval(loadOrdens, 13600000);
+    const intervalId = setInterval(loadOrdens, 30000);
 
     // Limpa o intervalo quando o componente é desmontado
     return () => clearInterval(intervalId);
